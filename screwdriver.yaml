@@ -1,0 +1,11 @@
+shared:
+  annotations:
+    screwdriver.cd/mergeSharedSteps: true
+  steps:
+     - premotd: echo build
+jobs:
+    main:
+        template: python/package_rpm@latest
+        requires: [~pr, ~commit]
+        steps:
+         - preinit_os: echo replace
